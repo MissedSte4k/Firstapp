@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">First.app</string>
+    <string name="secondActivityButton">SecondActivityButton</string>
+    <string name="title">title</string>
+    <string name="Description">Description</string>
+    <string name="add">add</string>
+    <string name="foto">foto</string>
+</resources>
