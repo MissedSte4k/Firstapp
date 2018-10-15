@@ -33,8 +33,8 @@ public class FirstActivity extends AppCompatActivity {
         Description = (EditText) findViewById(R.id.editText2);
         add = (Button) findViewById(R.id.button);
 
-        items.add(new ListItem("Jack", R.drawable.ic_3d_rotation_48pt,"Mathematics, Chemistry"));
-        items.add(new ListItem("Jane", R.drawable.ic_announcement_black_48dp,"Physics, Informatics"));
+        items.add(new ListItem("Test", R.drawable.ic_3d_rotation_48pt,"This is a test"));
+        items.add(new ListItem("Test2", R.drawable.ic_announcement_black_48dp,"this is a test too"));
 
         secondActivityButton.setOnClickListener(startSecondActivity);
         secondActivityButton.setOnLongClickListener(startThirdActivityLong);

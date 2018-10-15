@@ -1,8 +1,11 @@
 package edu.ktu.firstapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -11,13 +14,15 @@ import java.util.List;
 public class SecondActivity extends AppCompatActivity {
     private ListView myList;
     private ListAdapter adapter;
+    private Context context = this;
+    private static List<ListItem> items = new ArrayList<>();
     @Override
     protected void onCreate (Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.secondactivityddesign);
         myList = (ListView) findViewById(R.id.ListView);
 
-        List<ListItem> items = new ArrayList<>();
+
 
         Intent intent = getIntent();
         if(intent.getBooleanExtra("flag",true)){
@@ -37,5 +42,26 @@ public class SecondActivity extends AppCompatActivity {
         items.addAll(FirstActivity.getList());
         adapter = new ListAdapter(this,items);
         myList.setAdapter(adapter);
+        myList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                runForthActivity((int) id);
+            }
+        });
+
+
     }
+
+    public static ListItem getById(int id)
+    {
+        return items.get(id);
+    }
+
+    public void runForthActivity(int id)
+        {
+            Intent intent = new Intent(context, FourthActivity.class);
+            intent.putExtra("flag",id);
+            context.startActivity(intent);
+        }
+
 }

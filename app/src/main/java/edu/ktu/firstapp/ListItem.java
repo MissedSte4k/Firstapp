@@ -25,6 +25,7 @@ public class ListItem {
     public int getImageId() {
         return imageId;
     }
+
     public void setImageId(int imageId) {
         this.imageId = imageId;
     }
